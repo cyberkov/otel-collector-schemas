@@ -1,0 +1,24 @@
+# Defines the file format. MUST be set to 1.0.0.
+file_format: 1.0.0
+
+# The Schema URL that this file is published at. The version number in the URL
+# MUST match the highest version number in the "versions" section below.
+# Note: the schema version number in the URL is not related in any way to
+# the file_format setting above.
+schema_url: https://github.com/cyberkov/otel-collector-schemas/raw/main/collectd-schema.yml
+
+# Definitions for each schema version in this family.
+# Note: the ordering of versions is defined according to semver
+# version number ordering rules.
+versions:
+  0.1.0:
+    metrics:
+      # Definitions that apply to Metric data type.
+      changes:
+        - rename_metrics:
+            # map of key/values. The keys are the old metric name used
+            # in the previous version, the values are the new metric name
+            # starting from this version.
+            load.shortterm: system.load1
+            load.midterm: system.load5
+            load.longterm: system.load15
